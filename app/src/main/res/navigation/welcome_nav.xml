@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.navigationdemo.MainFragment"
+        android:name="com.navigationdemo.main.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/main_fragment">
 
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.prasa.navsample.ui.welcome.WelcomeMeFragment"
+        android:name="com.navigationdemo.welcome.WelcomeMeFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
         <argument
@@ -35,7 +35,7 @@
 
     <activity
         android:id="@+id/secondActivity"
-        android:name="com.example.prasa.navsample.ui.welcome.WelcomeMeActivity"
+        android:name="com.navigationdemo.welcome.WelcomeMeActivity"
         android:label="second_activity"
         tools:layout="@layout/activity_second">
         <argument
@@ -46,7 +46,7 @@
 
     <fragment
         android:id="@+id/ageFragment"
-        android:name="com.example.prasa.navsample.ui.age.AskMyAgeFragment"
+        android:name="com.navigationdemo.age.AskMyAgeFragment"
         android:label="fragment_age"
         tools:layout="@layout/fragment_age">
         <argument
@@ -60,7 +60,7 @@
 
     <fragment
         android:id="@+id/welcomeWithAgeFragment"
-        android:name="com.example.prasa.navsample.ui.welcome.WelcomeMeWithAgeFragment"
+        android:name="com.navigationdemo.welcome.WelcomeMeWithAgeFragment"
         android:label="fragment_welcome_with_age"
         tools:layout="@layout/fragment_welcome_with_age">
 
