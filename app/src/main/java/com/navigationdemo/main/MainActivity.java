@@ -10,17 +10,18 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.navigationdemo.R;
 
 public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
+        NavHostFragment host = NavHostFragment.create(R.navigation.welcome_nav);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, host)
+                .setPrimaryNavigationFragment(host)
+                .commit();
+    }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_activity);
-		Fragment host = NavHostFragment.create(R.navigation.welcome_nav);
-		getSupportFragmentManager().beginTransaction().replace(R.id.container, host).setPrimaryNavigationFragment(host).commit();
-	}
-
-	@Override
-	public boolean onSupportNavigateUp() {
-		return Navigation.findNavController(this, R.id.container).navigateUp();
-	}
+    @Override
+    public boolean onSupportNavigateUp() {
+        return Navigation.findNavController(this, R.id.container).navigateUp();
+    }
 }

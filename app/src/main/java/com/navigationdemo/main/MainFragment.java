@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.navigationdemo.R;
@@ -41,11 +40,12 @@ public class MainFragment extends Fragment {
                 String name = editTextName.getText().toString();
                 if (TextUtils.isEmpty(name)) {
                     editTextName.setError("Please enter a name");
-                } else {
-                    MainFragmentDirections.ActionListToDetail action = MainFragmentDirections.actionListToDetail();
-                    action.setMyname(name);
-                    new NavController(getActivity()).navigate(action);
+                    return;
                 }
+                MainFragmentDirections.ActionListToDetail action = MainFragmentDirections.actionListToDetail();
+                action.setMyname(name);
+                Navigation.findNavController(getActivity(), R.id.main).navigate(action);
+
             }
         });
 
@@ -55,11 +55,12 @@ public class MainFragment extends Fragment {
                 String name = editTextName.getText().toString();
                 if (TextUtils.isEmpty(name)) {
                     editTextName.setError("Please enter a name");
-                } else {
-                    MainFragmentDirections.ActionMainToSecondActivity action = MainFragmentDirections.actionMainToSecondActivity();
-                    action.setMyname(name);
-                    new NavController(getActivity()).navigate(action);
+                    return;
                 }
+                MainFragmentDirections.ActionMainToSecondActivity action = MainFragmentDirections.actionMainToSecondActivity();
+                action.setMyname(name);
+                Navigation.findNavController(getActivity(), R.id.main).navigate(action);
+
             }
         });
 
@@ -69,11 +70,12 @@ public class MainFragment extends Fragment {
                 String name = editTextName.getText().toString();
                 if (TextUtils.isEmpty(name)) {
                     editTextName.setError("Please enter a name");
-                } else {
-                    MainFragmentDirections.ActionMainFragmentToAgeFragment action = MainFragmentDirections.actionMainFragmentToAgeFragment();
-                    action.setMyname(name);
-                    new NavController(getActivity()).navigate(action);
+                    return;
                 }
+                MainFragmentDirections.ActionMainFragmentToAgeFragment action = MainFragmentDirections.actionMainFragmentToAgeFragment();
+                action.setMyname(name);
+                Navigation.findNavController(getActivity(), R.id.main).navigate(action);
+
             }
         });
     }

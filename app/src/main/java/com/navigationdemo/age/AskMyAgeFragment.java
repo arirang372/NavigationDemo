@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.navigationdemo.R;
 
@@ -24,11 +24,11 @@ public class AskMyAgeFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(final View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         helloEnterAge = view.findViewById(R.id.helloEnterAge);
         buttonWelcomeWithAge = view.findViewById(R.id.buttonWelcomeWithAge);
-        name = getArguments().getString("myName");
+        name = getArguments().getString("myname");
         helloEnterAge.setHint("Hello " + name + " What's your age?");
         buttonWelcomeWithAge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +40,7 @@ public class AskMyAgeFragment extends Fragment {
                     AskMyAgeFragmentDirections.ActionAgeFragmentToWelcomeWithAgeFragment action = AskMyAgeFragmentDirections.actionAgeFragmentToWelcomeWithAgeFragment();
                     action.setMyage(Integer.parseInt(age));
                     action.setMyname(name);
-                    new NavController(getActivity()).navigate(action);
+                    Navigation.findNavController(getActivity(), R.id.ageFragmentMain).navigate(action);
                 }
             }
         });
